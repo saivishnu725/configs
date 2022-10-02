@@ -1,0 +1,16 @@
+#create a BARE git repo
+git init --bare $HOME/.cfg
+
+#create a alias to easily access git only for this repo
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+#don't show all the files in ~
+#show only tracked files
+config config --local status.showUntrackedFiles no
+
+#add the alias to .bashrc for using it in all the sessions
+echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.bashrc
+
+#git bash completion setup
+sudo cp /usr/share/bash-completion/completions/git /usr/share/bash-completion/completions/config
+
