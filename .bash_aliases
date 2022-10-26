@@ -1,4 +1,4 @@
-alias cdp='cd /home/saivishnu/Programs/'
+alias cdp='cd $HOME/Programs/'
 
 #dotfiles
 alias config='/usr/bin/git --git-dir=/home/saivishnu/.cfg/ --work-tree=/home/saivishnu'
@@ -285,4 +285,7 @@ alias sr="sudo reboot"
 #alias yayskip='yay -S --mflags --skipinteg'
 #alias trizenskip='trizen -S --skipinteg'
 
-
+#to use java 8
+alias java8='$HOME/Downloads/jdk8/bin/java'
+alias javac8='$HOME/Downloads/jdk8/bin/javac'
+alias appletviewer='$HOME/Downloads/jdk8/bin/appletviewer'

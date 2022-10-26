@@ -59,7 +59,7 @@ fastfetch
 #sfetch | lolcat
 
 #rust setup
-#. "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 
 
 
@@ -90,11 +90,14 @@ ex (){
 }
 
 webmTOmp4 () {
-  ffmpeg -i "$1".webm -qscale 0 "$1".mp4
+		name=$1
+		filename={$name%.*}
+		ffmpeg -i $filename.webm -qscale 0 $filename.mp4
 }    
 mp4TOmp3 () {
   ffmpeg -i "$1".mp4 "$1".mp3
 }
 
+#go
 export PATH=$PATH:/usr/local/go/bin
 

@@ -111,18 +111,33 @@ c () {
 }
 
 py () {
-		filename=$1
-		$EDITOR $filename && python3 $filename
+		$EDITOR $1 && python3 $1
 }
 
 j () {
 		filename=$1
-		name=${filename%.*}
-		$EDITOR $filename && javac $filename && java $name
+		class=${filename%.*}
+		$EDITOR $filename && javac $filename && java $class
+}
+
+j8 () {
+		filename=$1
+		class={$filename%.*}
+		vim $filename && javac8 $filename && java $class
+}
+
+appletjava () {
+		vim $1 && javac8 $1 && appletviewer $1
+}
+
+applethtml () {
+		vim $1 && javac8 $1 && appletviewer $2
 }
 
 gitacp () {
 		commit_message=$1
 		git add . && git commit -m $commit_message && git push
 }
-export CLASSPATH=:/home/saivishnu/Downloads/opencv/build/bin:/home/saivishnu/Downloads/opencv/build/bin
+
+export CLASSPATH=:$HOME/Downloads/opencv/build/bin:$HOME/Downloads/opencv/build/bin
+XDG_CONFIG_HOME=/home/saivishnu/.config
