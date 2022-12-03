@@ -104,9 +104,31 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.bashrc
 
-c () {
+onlyname () {
 		filename=$1
 		name=${filename%.*}
+		echo $name
+}
+
+webmTOmp4 () {
+		name=$1
+		filename=$(onlyname $name)
+		ffmpeg -i $filename.webm -qscale 0 $filename.mp4
+}    
+mp4TOmp3 () {
+		name=$1
+		filename=$(onlyname $name)
+		ffmpeg -i $filename.mp4 $filename.mp3
+}
+mkvtomp4 () {
+		name=$1
+		filename=$(onlyname $name)
+		ffmpeg -i $filename.mkv $filename.mp4
+}
+
+c () {
+		filename=$1
+		name=$(onlyname $name)
 		$EDITOR $filename && gcc $filename -o $name && ./$name
 }
 
@@ -116,23 +138,23 @@ py () {
 
 j () {
 		filename=$1
-		class=${filename%.*}
+		class=$(onlyname $name)
 		$EDITOR $filename && javac $filename && java $class
 }
 
 j8 () {
 		filename=$1
-		class={$filename%.*}
+		class=$(onlyname $name)
 		vim $filename && javac8 $filename && java $class
 }
 
-appletjava () {
-		vim $1 && javac8 $1 && appletviewer $1
-}
+#appletjava () {
+#		vim $1 && javac8 $1 && appletviewer $1
+#}
 
-applethtml () {
-		vim $1 && javac8 $1 && appletviewer $2
-}
+#applethtml () {
+#		vim $1 && javac8 $1 && appletviewer $2
+#}
 
 gitacp () {
 		commit_message=$1

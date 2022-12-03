@@ -89,15 +89,6 @@ ex (){
   fi
 }
 
-webmTOmp4 () {
-		name=$1
-		filename={$name%.*}
-		ffmpeg -i $filename.webm -qscale 0 $filename.mp4
-}    
-mp4TOmp3 () {
-  ffmpeg -i "$1".mp4 "$1".mp3
-}
-
 #go
 export PATH=$PATH:/usr/local/go/bin
 

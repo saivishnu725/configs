@@ -1,4 +1,7 @@
 alias cdp='cd $HOME/Programs/'
+alias h="cat $HOME/.zsh_history | sort | uniq | fzf | tr \";\" \"\n\" | grep \"^[^:]\" | tee >(bash)"
+alias hc="cat $HOME/.zsh_history | sort | uniq | fzf | tr \";\" \"\n\" | grep \"^[^:]\" | copy"
+
 
 #dotfiles
 alias config='/usr/bin/git --git-dir=/home/saivishnu/.cfg/ --work-tree=/home/saivishnu'
@@ -289,3 +292,7 @@ alias sr="sudo reboot"
 alias java8='$HOME/Downloads/jdk8/bin/java'
 alias javac8='$HOME/Downloads/jdk8/bin/javac'
 alias appletviewer='$HOME/Downloads/jdk8/bin/appletviewer'
+alias addReadmeLicense="cp ~/Templates/{LICENSE,README.md} ."
+alias plexstatus="sudo systemctl status plexmediaserver.service"
+alias plexstart="sudo systemctl start plexmediaserver.service"
+alias plexstop="sudo systemctl stop plexmediaserver.service"
