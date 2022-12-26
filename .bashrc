@@ -59,7 +59,7 @@ fastfetch
 #sfetch | lolcat
 
 #rust setup
-. "$HOME/.cargo/env"
+[[ -f $HOME/.cargo/env ]] && . $HOME/.cargo/env
 
 
 
@@ -92,3 +92,5 @@ ex (){
 #go
 export PATH=$PATH:/usr/local/go/bin
 
+# turn off dotnet telemetry
+DOTNET_CLI_TELEMETRY_OPTOUT=2

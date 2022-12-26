@@ -1,0 +1,109 @@
+#terminal
+super + {t,Return}
+	alacritty
+
+#make sxhkd reload its configuration files:
+#alt + Escape
+#	pkill -USR1 -x sxhkd
+
+#dmenu
+alt + @space 
+	dmenu_run -b -fn 'Free Sans'
+
+#quit/restart bspwm
+shift + alt + {q,r}
+	bspc {quit,wm -r}
+#restart bspwm and restart sxhkd
+super+ r
+	pkill -USR1 -x sxhkd; bspc wm -r; #verity --info --width=200 --height=100 --text "Reload sucessfull" 
+
+# Toggle floating
+super + d
+    if [ -z "$(bspc query -N -n focused.floating)" ]; then \
+        bspc node focused -t floating; \
+    else \
+        bspc node focused -t tiled; \
+    fi
+
+
+#power off
+ctrl + shift + delete
+	shutdown -P 0
+
+#quit
+shift + alt + q
+	bspc quit
+
+#send window to n-th desktop
+alt + shift + {1-9}
+	bspc node -d '^{1-9}'
+
+#close window
+super + q
+	bspc node -c
+#quit alt f4
+alt + @F4
+	bspc node -c
+
+
+#preselect the direction
+super + ctrl + {h,j,k,l,Left,Down,Up,Right}
+	bspc node -p {west,south,north,east,west,south,north,east}
+
+# change the focused window
+super + {h,Left,j,Down,k,Up,l,Right}
+	bspc node -f {west,west,south,south,north,north,east,east}
+
+#change workspace
+alt + {1-9,0}
+  bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}
+
+#open firefox
+super + 1
+	firefox &
+
+
+#Brightness control
+XF86MonBrightnessDown
+	xbacklight -dec 10
+XF86MonBrightnessUp
+	xbacklight -inc 10 
+
+#Volume Control
+#XF86AudioLowerVolume
+#	amixer set Master 5%-
+#XF86AudioRaiseVolume
+#	amixer set Master 5%+
+#XF86AudioMute
+#        amixer set Master toggle
+
+#cycle through windows alt tab
+alt + {c, C}
+	bspc node -f {next,prev}.local.hidden.window
+
+
+# move a floating window
+super + f + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+#clone display to HDMI1
+ctrl + @F10
+	xrandr --output HDMI1 --mode 1920x1080
+#extend display to right
+shift + @F10
+	xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --mode 1920x1080 --right-of eDP1
+#kill the secondary display
+shift + ctrl + @F10
+	xrandr --output HDMI1 --off
+
+#Screenshot
+Print
+	flameshot full -p $HOME/Pictures/Screenshots; zenity --info --text "Screenshot Successful"
+
+Screenshot with GUI to select area
+shift + Print
+	flamshot gui -p $HOME/Pictures/Screenshots

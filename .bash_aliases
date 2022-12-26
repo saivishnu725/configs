@@ -52,22 +52,21 @@ alias dd='dd status=progress '
 #make
 alias m='make '
 alias mr='make run'
-
-alias pg='ping google.com'
+alias pg='ping google.com -c3'
 alias copy='xclip -selection clipboard'
 alias pa='xclip -o -selection clipboard'
 	
 #some Arch based things
-#alias install='sudo pacman -S'
-#alias update='sudo pacman -Syu'
-#alias upgrade='sudo pacman -Syyu'
-#alias uninstall='sudo pacman -Rnsu'
+alias install='sudo pacman -S'
+alias update='sudo pacman -Sy'
+alias upgrade='sudo pacman -Syyu'
+alias uninstall='sudo pacman -Rnsu'
 	
 #some Debian based things
-alias install='sudo apt install'
-alias update='sudo apt update'
-alias upgrade='sudo apt update && sudo apt upgrade'
-alias uninstall='sudo apt remove'
+#alias install='sudo apt install'
+#alias update='sudo apt update'
+#alias upgrade='sudo apt update && sudo apt upgrade'
+#alias uninstall='sudo apt remove'
 
 #some Fedora things
 #alias install='sudo dnf install'
@@ -296,3 +295,8 @@ alias addReadmeLicense="cp ~/Templates/{LICENSE,README.md} ."
 alias plexstatus="sudo systemctl status plexmediaserver.service"
 alias plexstart="sudo systemctl start plexmediaserver.service"
 alias plexstop="sudo systemctl stop plexmediaserver.service"
+alias cdw="cd ~/Desktop/They\ Both\ Die\ at\ the\ End "
+alias imgfs="image -s -f"
+alias img="image -s"
+alias img="image -p"
+alias imgf="image -f"
